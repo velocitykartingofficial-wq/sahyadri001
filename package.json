@@ -1,0 +1,16 @@
+{
+  "name": "sahyadri-ayurveda",
+  "version": "1.0.0",
+  "description": "Sahyadri Ayurveda website",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ayurveda",
+    "herbal",
+    "wellness"
+  ],
+  "author": "Your Name",
+  "license": "ISC"
+}
