@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Sahyadri Ayurveda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <section id="product" class="product-section">
+        <div class="product-grid">
+            <!-- PRODUCT 1: NEEM -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="neeeeem.jpg" alt="Sahyadri Neem Powder">
+                </div>
+                <div class="product-details">
+                    <span class="sub-title">Herbal & Medicinal</span>
+                    <h2>Pure Neem Powder</h2>
+                    <span class="price">₹249.00 <span style="font-size:0.9rem; color:#888; font-weight:400">/ 250g</span></span>
+                    
+                    <div class="shloka-box">
+                        <em style="font-style: normal; font-weight: 500; font-size: 1.1rem; line-height: 1.8;">
+                            "निम्बः शीतो लघुर्ग्राही कटुको तिक्तपाककः।<br>
+                            अग्निवातश्रम-तृट्कास-ज्वरारुचि-कृमीन्॥"
+                        </em>
+                        <span style="font-size: 0.85rem; color: #555; display: block; margin-top: 10px;">— भावप्रकाश निघण्टु</span>
+                    </div>
+                    <p style="font-size: 0.9rem;"><strong>Translation:</strong> Neem is cooling, light, and bitter. It pacifies Pitta and Kapha, and destroys microbes (Krimi) and skin disorders.</p>
+
+                    <button class="btn-add-cart" onclick="addToCart('Pure Neem Powder', 249, 'neeeeem.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT 2: MORINGA -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="moringa_powder.jpg" alt="Sahyadri Moringa Powder">
+                </div>
+                <div class="product-details">
+                    <span class="sub-title">Superfood & Vitality</span>
+                    <h2>Organic Moringa Powder</h2>
+                    <span class="price">₹299.00 <span style="font-size:0.9rem; color:#888; font-weight:400">/ 250g</span></span>
+                    
+                    <div class="shloka-box">
+                        <em style="font-style: normal; font-weight: 500; font-size: 1.1rem; line-height: 1.8;">
+                            "शिग्रुः सर्वो लघुर्ग्राही तीक्ष्णोऽग्निदो विदाहकृत्।<br>
+                            क्षारतिक्तः कटुः पाके हन्ति वातकफव्रणान्॥"
+                        </em>
+                        <span style="font-size: 0.85rem; color: #555; display: block; margin-top: 10px;">— भावप्रकाश निघण्टु</span>
+                    </div>
+                    <p style="font-size: 0.9rem;"><strong>Translation:</strong> Moringa (Shigru) is light, sharp, and heating. It kindles digestive fire and destroys Vata and Kapha imbalances.</p>
+
+                    <button class="btn-add-cart" onclick="addToCart('Organic Moringa Powder', 299, 'moringa_powder.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT 3: ASHWAGANDHA -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="ashwagandha_powder.jpg" alt="Sahyadri Ashwagandha Powder">
+                </div>
+                <div class="product-details">
+                    <span class="sub-title">Stress & Strength</span>
+                    <h2>Ashwagandha Powder</h2>
+                    <span class="price">₹199.00 <span style="font-size:0.9rem; color:#888; font-weight:400">/ 100g</span></span>
+                    
+                    <div class="shloka-box">
+                        <em style="font-style: normal; font-weight: 500; font-size: 1.1rem; line-height: 1.8;">
+                            "अश्वगन्धाऽनिलश्लेष्मश्वित्रशोथक्षयापहा।<br>
+                            बल्या रसायनी तिक्ता कषायोष्णाऽतिशुक्रला॥"
+                        </em>
+                        <span style="font-size: 0.85rem; color: #555; display: block; margin-top: 10px;">— भावप्रकाश निघण्टु</span>
+                    </div>
+                    <p style="font-size: 0.9rem;"><strong>Translation:</strong> Ashwagandha destroys Vata and Kapha. It is a rejuvenator (Rasayani), gives strength (Balya), and promotes vitality.</p>
+
+                    <button class="btn-add-cart" onclick="addToCart('Ashwagandha Powder', 199, 'ashwagandha_powder.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT 4: GILOY -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="giloy_pkg.jpg" alt="Sahyadri Giloy Powder">
+                </div>
+                <div class="product-details">
+                    <span class="sub-title">Immunity & Detox</span>
+                    <h2>Giloy (Guduchi) Powder</h2>
+                    <span class="price">₹299.00 <span style="font-size:0.9rem; color:#888; font-weight:400">/ 200g</span></span>
+                    
+                    <div class="shloka-box">
+                        <em style="font-style: normal; font-weight: 500; font-size: 1.1rem; line-height: 1.8;">
+                            "गुडूची कटुका तिक्ता स्वादुपाका रसायनी।<br>
+                            संग्राहिणी कषायोष्णा लघ्वी बल्याऽग्निदीपनी॥"
+                        </em>
+                        <span style="font-size: 0.85rem; color: #555; display: block; margin-top: 10px;">— भावप्रकाश निघण्टु</span>
+                    </div>
+                    <p style="font-size: 0.9rem;"><strong>Translation:</strong> Guduchi is bitter, heating, and rejuvenating. It kindles digestive fire (Agni), gives strength, and balances all three doshas.</p>
+
+                    <button class="btn-add-cart" onclick="addToCart('Giloy (Guduchi) Powder', 299, 'giloy_pkg.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <script src="main.js"></script>
+</body>
+</html>

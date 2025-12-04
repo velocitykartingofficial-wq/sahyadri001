@@ -1,14 +1,210 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahyadri Ayurveda | Premium Herbal Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div id="header"></div>
+
+    <!-- CART SIDEBAR HTML -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Cart</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-body">
+            <div class="cart-items" id="cart-items">
+                <!-- Items will be injected here via JS -->
+                <p class="empty-cart-msg">Your cart is currently empty.</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="recommended-products">
+                <h4>Recommended Products</h4>
+                <div class="rec-product-grid">
+                    <div class="rec-product">
+                        <img src="ashwagandha_powder.jpg" alt="Ashwagandha">
+                        <p>Ashwagandha</p>
+                        <button class="btn-add-rec" onclick="addToCart('Ashwagandha Powder', 199, 'ashwagandha_powder.jpg')">+</button>
+                    </div>
+                    <div class="rec-product">
+                        <img src="moringa_powder.jpg" alt="Shilajit Gold">
+                        <p>Himalaya Shilajit Gold</p>
+                        <button class="btn-add-rec" onclick="addToCart('Organic Moringa Powder', 299, 'moringa_powder.jpg')">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-summary">
+                <div class="promo-section">
+                    <i class="fas fa-tag"></i>
+                    <span>Available Offers</span>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="subtotal-row">
+                    <span>SUBTOTAL</span>
+                    <span id="cart-total">₹0.00</span>
+                </div>
+                <div class="discount-form">
+                    <input type="text" placeholder="Discount code or gift card">
+                    <button>Apply</button>
+                </div>
+                <button class="btn-checkout" onclick="alert('Proceeding to Checkout...')">CHECK OUT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI CHAT WIDGET -->
+    <div class="ai-chat-trigger" onclick="toggleChat()">
+        <i class="fas fa-sparkles"></i>
+    </div>
+
+    <div class="ai-chat-window" id="ai-chat-window">
+        <div class="ai-chat-header">
+            <h4><i class="fas fa-spa"></i> Vedic Healer AI ✨</h4>
+            <div onclick="toggleChat()" style="cursor:pointer;"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="ai-chat-body" id="chat-body">
+            <div class="ai-message bot">
+                Namaste! I am your AI Vedic Sage. Tell me about your health concern (e.g., sleeplessness, low energy, skin issues), and I will recommend the right herb from our collection.
+            </div>
+        </div>
+        <div class="typing-indicator" id="typing-indicator">Sage is thinking...</div>
+        <div class="ai-chat-footer">
+            <input type="text" class="ai-input" id="user-input" placeholder="Ask about remedies..." onkeypress="handleEnter(event)">
+            <button class="ai-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i> Item added to cart!
+    </div>
+
+    <header class="hero">
+        <h1>From The Mountains of Sahyadri</h1>
+        <p>Ancient Vedic wisdom, validated by modern science. Sourced directly from nature, delivered to your doorstep.</p>
+        <a href="shop.html" class="btn-consult" style="background:var(--accent-gold); color:var(--text-dark); border:none;">Explore Collection</a>
+        
+        <div class="badges">
+            <div class="badge">100% Organic</div>
+            <div class="badge">Scientific Approach</div>
+            <div class="badge">Doctor Guided</div>
+        </div>
+    </header>
+
+    <!-- OUR BEST SELLERS -->
+    <section class="product-section">
+        <h2 style="text-align: center; margin-bottom: 50px;">Our Best Sellers</h2>
+        <div class="product-grid">
+            <!-- PRODUCT 1: NEEM -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="neeeeem.jpg" alt="Sahyadri Neem Powder">
+                </div>
+                <div class="product-details">
+                    <span class="sub-title">Herbal & Medicinal</span>
+                    <h2>Pure Neem Powder</h2>
+                    <span class="price">₹249.00 <span class="price-per-gram">/ 250g</span></span>
+                    <div class="shloka-container">
+                        <p class="shloka-text">"निम्बः शीतो लघुर्गाही कटुको तिक्तपाककः। अग्निवातश्रम-तृट्कास-ज्वरारुचि-कृमीन्॥"</p>
+                        <p class="shloka-source">— भावप्रकाश निघण्टु</p>
+                        <p class="translation"><b>Translation:</b> Neem is cooling, light, and bitter. It pacifies Pitta and Kapha, and destroys microbes (Krimi) and skin disorders.</p>
+                    </div>
+                    <button class="btn-add-cart" onclick="addToCart('Pure Neem Powder', 249, 'neeeeem.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT 2: MORINGA -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="moringa_powder.jpg" alt="Sahyadri Moringa Powder">
+                </div>
+                <div class="product-details">
+                    <span class="sub-title">Superfood & Vitality</span>
+                    <h2>Organic Moringa Powder</h2>
+                    <span class="price">₹299.00 <span class="price-per-gram">/ 250g</span></span>
+                    <div class="shloka-container">
+                        <p class="shloka-text">"शिग्रुः कटूष्णो मधुरो दीपनो पाचनः परम्। वातश्लेष्महरः शोथ-कृमिघ्नः परिकार्तिकः॥"</p>
+                        <p class="shloka-source">— भावप्रकाश निघण्टु</p>
+                        <p class="translation"><b>Translation:</b> Moringa is pungent, hot, and sweet. It is a great digestive and appetizer, pacifies Vata and Kapha, and is useful in swelling and worm infestations.</p>
+                    </div>
+                    <button class="btn-add-cart" onclick="addToCart('Organic Moringa Powder', 299, 'moringa_powder.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT 3: ASHWAGANDHA -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="ashwagandha_powder.jpg" alt="Sahyadri Ashwagandha Powder">
+                </div>
+                <div class="product-details">
+                    <span class="sub-title">Stress & Strength</span>
+                    <h2>Ashwagandha Powder</h2>
+                    <span class="price">₹199.00 <span class="price-per-gram">/ 100g</span></span>
+                    <div class="shloka-container">
+                        <p class="shloka-text">"अश्वगन्धा कषायोष्णा कटुवीर्या रसायनी। बल्या वातहरा हन्ति कासश्वासक्षयव्रणान्॥"</p>
+                        <p class="shloka-source">— भावप्रकाश निघण्टु</p>
+                        <p class="translation"><b>Translation:</b> Ashwagandha is astringent, hot, and pungent. It is a rejuvenator, gives strength, pacifies Vata, and is useful in cough, asthma, emaciation, and ulcers.</p>
+                    </div>
+                    <button class="btn-add-cart" onclick="addToCart('Ashwagandha Powder', 199, 'ashwagandha_powder.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="shop.html" class="btn-consult">View All Products</a>
+        </div>
+    </section>
+
+    <!-- OUR STORY & SCIENCE SNAPSHOT -->
+    <section class="info-section" style="background-color: var(--bg-cream);">
+        <div style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1;">
+                <h2>Our Story</h2>
+                <p>Born from a deep respect for nature and tradition, Sahyadri Ayurveda was founded to bridge the gap between ancient healing wisdom and modern lifestyles...</p>
+                <a href="our-story.html" class="btn-consult" style="background: var(--primary-green);">Read Our Full Story</a>
+            </div>
+            <div style="flex: 1;">
+                <h2>The Science</h2>
+                <p>We don't just rely on tradition; we verify it. Every batch of our herbs undergoes rigorous phytochemical analysis to ensure active compound retention...</p>
+                <a href="our-story.html#science" class="btn-consult" style="background: var(--primary-green);">Learn About Our Process</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US? -->
+    <section class="consultation" style="background-color: #fff;">
+        <h2 style="color:var(--text-dark)">Why Sahyadri?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-user-md"></i>
+                <h4 style="color:var(--text-dark)">Expert Doctors</h4>
+                <p style. I have updated the prices on the `shop.html` page. Now I'll update the `index.html` page./p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-file-medical-alt"></i>
+                <h4 style="color:var(--text-dark)">Personalized Plan</h4>
+                <p style="font-size: 0.8rem;">Diet, lifestyle, and dosage tailored to your Prakriti.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-rupee-sign"></i>
+                <h4 style="color:var(--text-dark)">100% Free Consultation</h4>
+                <p style="font-size: 0.8rem;">We believe correct guidance should be accessible to all.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="consultation.html" class="btn-consult">Book a Free Consultation</a>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <script src="main.js"></script>
 </body>
 </html>
